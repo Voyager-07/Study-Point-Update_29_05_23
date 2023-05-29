@@ -845,11 +845,12 @@ form .category label .dot{
 
 
 .fa {
-    padding: 15px;
+    padding: 11px;
     margin: 10px 7px;
     text-align: center;
     text-decoration: none;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    border-radius: 15px;
 }
 /* Facebook  */
 .fa-facebook {
