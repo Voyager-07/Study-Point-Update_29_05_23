@@ -526,6 +526,7 @@ form .category label .dot{
     bottom: -100px;
     z-index: -1;
     opacity: 0.4;
+    pointer-events: none;
 }
 
 .why_choose .why_choose_card h2 {
