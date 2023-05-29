@@ -755,7 +755,7 @@ form .category label .dot{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 0  0 0 30px;
+/*     margin: 0  0 0 30px; */
     flex-direction: row;
 }
 
