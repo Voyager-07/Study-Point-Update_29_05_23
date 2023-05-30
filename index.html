@@ -11,14 +11,20 @@
     
     <title>Study Point Coaching Classes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+        (function(){
+            emailjs.init("WO42EqOjIlvvfjnhY");
+        })();
+</script>
 
 </head>
 <body class="container" >
@@ -60,25 +66,25 @@
         
 
         <div class="st_form">
-            <div class="title">Registration</div>
+            <div class="title">Book Demo</div>
             <div class="content" >
                 <form action="#">
                     <div class="user_details">
                         <div class="input_box">
                             <span class="details">Full Name</span>
-                            <input type="text" placeholder="Enter your name" required>
+                            <input id="full_name" type="text" placeholder="Enter your name" required>
                         </div>
                         <div class="input_box">
                             <span class="details">Class</span>
-                            <input type="text" placeholder="Enter your Class" required>
+                            <input id="class" type="text" placeholder="Enter your Class" required>
                         </div>
                         <div class="input_box">
                             <span class="details">Phone Number</span>
-                            <input type="text" placeholder="Enter your Phone Number" required>
+                            <input  id="phone_no"  type="number"placeholder="Enter your Phone Number" required>
                         </div>
                         <div class="input_box">
                             <span class="details">School/College</span>
-                            <input type="text" placeholder="Enter your School/College" required>
+                            <input id="school" type="text" placeholder="Enter your School/College" required>
                         </div>
                         <div class="gender_details">
         
@@ -97,8 +103,8 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="button">
-                            <input type="submit" value="Register">
+                        <div class="button" id="register_button">
+                            <input onclick="register()"  type="submit" value="Register">
                         </div>
                         
                     </div>
@@ -171,7 +177,7 @@
             <div class="subheading_info">Start your journey with us.</div>
             <div class="somemore_info">
                 <div class="info_contain">
-                    <span class="main_info">2000+</span>
+                    <span class="main_info">600+</span>
                     <span class="text_somemore">Questions & Numericals</span>
                 </div>
                     
@@ -181,7 +187,7 @@
                 </div>
                 
                 <div class="info_contain"> 
-                    <span class="main_info">150+</span>
+                    <span class="main_info">100+</span>
                     <span class="text_somemore">Mock Tests</span>
                 </div>
                 
@@ -195,7 +201,7 @@
                  <div class="imgs">
                     <div class="rating_img">
                         <img src="images/rating.gif">
-                        <p>250+ Five Star Reviews</p>
+                        <p>200+ Five Star Reviews</p>
                     </div>
                     <div class="rating_img">
                         <img src="images/book.gif">
@@ -272,6 +278,52 @@
     
         }
 
+    </script>
+
+    <script>
+        function SendMail() {
+            var params = {
+                from_name : document.getElementById("full_name").value,
+                class : document.getElementById("class").value,
+                school : document.getElementById("school").value,
+                phone_no : document.getElementById("phone_no").value,
+            }
+            emailjs.send("studypoint.brh.2022", "template_c9pvl8y",params).then(function (res) {
+                alert("Demo Classes Request Sent Successfully!" + res.status);
+            })
+        }
+    </script>
+    <script>
+        function register() {
+        // Get all the input fields
+        var inputFields = document.querySelectorAll('input');
+
+        // Flag to track if all fields are filled
+        var allFieldsFilled = true;
+            // Check each input field
+        for (var i = 0; i < inputFields.length; i++) {
+            if (inputFields[i].value === '') {
+            allFieldsFilled = false;
+            break; // Exit the loop if any field is empty
+            }
+        }
+
+        // Perform action if all fields are filled
+        if (allFieldsFilled) {
+            // Call your desired function or perform your desired action here
+            // For example, you can display a success message or submit a form
+            // replace the following line with your desired action
+            SendMail();
+        } else {
+            // Display an error message or perform any other desired action
+            alert('Please fill in all the fields!');
+        }
+        }
+
+        function submitPoll(id){
+        document.getElementById("register_button").disabled = true;
+        setTimeout(function(){document.getElementById("register_button").disabled = false;},5000);
+        }
     </script>
 
 </body>
