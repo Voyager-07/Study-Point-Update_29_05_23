@@ -235,7 +235,17 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e
     /* Finally working just a good */
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 /* Registraton Form CSS Begins */
 
@@ -244,7 +254,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e
     display: flex;
     justify-content: center;
     height: 65vh;
-    
+    overflow: hidden;
 }
 
 .doctor {
@@ -328,7 +338,7 @@ form .user_details .input_box {
     border: 1px solid rgb(78, 6, 120);
     padding-left: 15px;
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 12px;
     font-family: 'Montserrat';
     font-weight: 500;
     color: black;
@@ -526,7 +536,6 @@ form .category label .dot{
     bottom: -100px;
     z-index: -1;
     opacity: 0.4;
-    pointer-events: none;
 }
 
 .why_choose .why_choose_card h2 {
@@ -756,7 +765,7 @@ form .category label .dot{
     display: flex;
     flex-direction: row;
     justify-content: center;
-/*     margin: 0  0 0 30px; */
+    /* margin: 0  0 0 0px; */
     flex-direction: row;
 }
 
@@ -779,6 +788,9 @@ form .category label .dot{
     }
     .display_board .flex_board .imgs {
         flex-direction: column;
+    }
+    .display_board .flex_board .imgs .rating_img  {
+        margin-left: 0;
     }
 }
 
